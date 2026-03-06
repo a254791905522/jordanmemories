@@ -1,0 +1,277 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Hidden Objects Jordan Memories - Discover Lost Treasures</title>
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;700&family=Lato:wght@300;400;600&display=swap');
+    :root {
+      --sand: #f5e6c8;
+      --terracotta: #c1694f;
+      --deep-bronze: #6b3a2a;
+      --dark: #2c1810;
+      --warm-bg: #3a2218;
+      --card-bg: rgba(60,35,22,0.75);
+      --gold: #d4a24e;
+      --cream: #faf3e8;
+      --muted: #c8b89a;
+    }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      font-family: 'Lato', 'Helvetica Neue', Arial, sans-serif;
+      background: var(--warm-bg);
+      color: var(--cream);
+      line-height: 1.7;
+      min-height: 100vh;
+    }
+    .hero {
+      position: relative;
+      background: linear-gradient(135deg, #5c2e1a 0%, #8b4b30 40%, #c1694f 70%, #d4a24e 100%);
+      padding: 60px 20px 50px;
+      text-align: center;
+      overflow: hidden;
+    }
+    .hero::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: radial-gradient(ellipse at 30% 80%, rgba(212,162,78,0.25) 0%, transparent 60%),
+                  radial-gradient(ellipse at 70% 20%, rgba(193,105,79,0.3) 0%, transparent 50%);
+      pointer-events: none;
+    }
+    .hero-icon {
+      width: 90px;
+      height: 90px;
+      border-radius: 22px;
+      background: linear-gradient(145deg, var(--gold), var(--terracotta));
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin: 0 auto 20px;
+      font-size: 42px;
+      box-shadow: 0 8px 30px rgba(0,0,0,0.35);
+    }
+    .hero h1 {
+      font-family: 'Playfair Display', Georgia, serif;
+      font-size: clamp(28px, 5vw, 44px);
+      font-weight: 700;
+      color: #fff;
+      margin-bottom: 8px;
+      text-shadow: 0 2px 12px rgba(0,0,0,0.3);
+    }
+    .hero .tagline {
+      font-size: 17px;
+      color: var(--sand);
+      font-weight: 300;
+      letter-spacing: 0.5px;
+    }
+    .wrap {
+      max-width: 860px;
+      margin: 0 auto;
+      padding: 30px 16px 50px;
+    }
+    .card {
+      background: var(--card-bg);
+      backdrop-filter: blur(6px);
+      border: 1px solid rgba(212,162,78,0.18);
+      border-radius: 16px;
+      padding: 28px 24px;
+      margin-bottom: 20px;
+      transition: transform 0.2s;
+    }
+    .card:hover { transform: translateY(-2px); }
+    h2 {
+      font-family: 'Playfair Display', Georgia, serif;
+      font-size: 22px;
+      color: var(--gold);
+      margin-bottom: 14px;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+    h2 .icon { font-size: 22px; }
+    p { color: var(--muted); margin-bottom: 12px; }
+    .highlight { color: var(--sand); font-weight: 600; }
+    ul {
+      list-style: none;
+      padding: 0;
+    }
+    ul li {
+      color: var(--muted);
+      padding: 7px 0;
+      padding-left: 26px;
+      position: relative;
+    }
+    ul li::before {
+      content: '✦';
+      position: absolute;
+      left: 0;
+      color: var(--gold);
+      font-size: 12px;
+      top: 9px;
+    }
+    .stats {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+      gap: 14px;
+      margin-top: 6px;
+    }
+    .stat-box {
+      background: rgba(212,162,78,0.08);
+      border: 1px solid rgba(212,162,78,0.15);
+      border-radius: 12px;
+      padding: 18px 16px;
+      text-align: center;
+    }
+    .stat-box .num {
+      font-family: 'Playfair Display', Georgia, serif;
+      font-size: 30px;
+      color: var(--gold);
+      font-weight: 700;
+    }
+    .stat-box .label {
+      font-size: 13px;
+      color: var(--muted);
+      margin-top: 4px;
+    }
+    .badge {
+      display: inline-block;
+      padding: 5px 14px;
+      border-radius: 999px;
+      background: rgba(212,162,78,0.15);
+      color: var(--gold);
+      font-weight: 600;
+      font-size: 13px;
+      letter-spacing: 0.5px;
+    }
+    a { color: var(--gold); text-decoration: none; transition: color 0.2s; }
+    a:hover { color: var(--sand); text-decoration: underline; }
+    .cta {
+      display: inline-block;
+      padding: 12px 32px;
+      background: linear-gradient(135deg, var(--terracotta), var(--gold));
+      color: #fff;
+      border-radius: 30px;
+      font-weight: 600;
+      font-size: 15px;
+      text-decoration: none;
+      box-shadow: 0 4px 18px rgba(193,105,79,0.35);
+      transition: transform 0.2s, box-shadow 0.2s;
+    }
+    .cta:hover { transform: translateY(-2px); box-shadow: 0 6px 24px rgba(193,105,79,0.45); text-decoration: none; color: #fff; }
+    .footer-note {
+      text-align: center;
+      color: var(--muted);
+      font-size: 13px;
+      opacity: 0.7;
+      margin-top: 20px;
+    }
+  </style>
+</head>
+<body>
+
+  <header class="hero">
+    <div class="hero-icon">&#128270;</div>
+    <h1>Hidden Objects<br>Jordan Memories</h1>
+    <p class="tagline">Lost Treasures of Jordan &mdash; Every Object Holds a Memory</p>
+  </header>
+
+  <main class="wrap">
+
+    <section class="card">
+      <span class="badge">Hidden Object Puzzle</span>
+      <p style="margin-top:14px;">
+        <span class="highlight">Hidden Objects &ndash; Jordan Memories</span> is a relaxing yet challenging hidden object
+        puzzle game where every scene tells a story. Explore beautifully crafted environments inspired by the timeless
+        landscapes of Jordan and uncover meaningful objects hidden within stunning images.
+      </p>
+      <p>
+        Each level is carefully designed to test your observation skills. Find hidden objects, beat the timer,
+        and unlock memories that have been waiting to be discovered.
+      </p>
+    </section>
+
+    <section class="card">
+      <div class="stats">
+        <div class="stat-box">
+          <div class="num">20</div>
+          <div class="label">Unique Levels</div>
+        </div>
+        <div class="stat-box">
+          <div class="num">10</div>
+          <div class="label">Objects Per Scene</div>
+        </div>
+        <div class="stat-box">
+          <div class="num">&#9733;</div>
+          <div class="label">Star Rating System</div>
+        </div>
+        <div class="stat-box">
+          <div class="num">4+</div>
+          <div class="label">Age Rating</div>
+        </div>
+      </div>
+    </section>
+
+    <section class="card">
+      <h2><span class="icon">&#9670;</span> Key Features</h2>
+      <ul>
+        <li>Beautifully detailed hidden object scenes inspired by Jordan's heritage</li>
+        <li>Time-based gameplay that adds excitement and challenge</li>
+        <li>Star-based performance system to track your skill</li>
+        <li>10 carefully placed hidden objects in every level</li>
+        <li>Helpful hint system when you need a nudge in the right direction</li>
+        <li>Smooth, intuitive controls designed for all ages</li>
+        <li>Internet connection required for gameplay features</li>
+      </ul>
+    </section>
+
+    <section class="card">
+      <h2><span class="icon">&#9688;</span> How to Play</h2>
+      <p>
+        Each scene presents a rich, detailed image filled with hidden objects. Your goal is to find all
+        <span class="highlight">10 objects</span> before time runs out. Tap on an object when you spot it &mdash;
+        the faster you find them, the more stars you earn.
+      </p>
+      <p>
+        Stuck on a tricky object? Use the built-in hint system to reveal its location. Progress through
+        all 20 levels and see if you can achieve a perfect three-star rating on every scene.
+      </p>
+    </section>
+
+    <section class="card">
+      <h2><span class="icon">&#9729;</span> A Journey Through Jordan</h2>
+      <p>
+        Whether you seek a calm, contemplative experience or a sharp mental challenge, Hidden Objects &ndash;
+        Jordan Memories offers an immersive journey full of mystery and nostalgia. Every level is a window
+        into memories waiting to be rediscovered.
+      </p>
+      <div style="text-align:center; margin-top:20px;">
+        <a class="cta" href="https://apps.apple.com/us/app/hidden-objects-jordan-memories/id1049254497" target="_blank">
+          Download on the App Store
+        </a>
+      </div>
+    </section>
+
+    <section class="card">
+      <h2><span class="icon">&#9881;</span> App Information</h2>
+      <ul>
+        <li>Category: Puzzle</li>
+        <li>Compatibility: iOS 13.0 or later (iPhone, iPad, iPod touch, Mac with Apple M1, Apple Vision)</li>
+        <li>Language: English</li>
+        <li>Size: 131.8 MB</li>
+        <li>Price: Free</li>
+      </ul>
+    </section>
+
+    <section class="card" style="text-align:center;">
+      <p>
+        <a href="./privacy.html">Privacy Policy</a>
+      </p>
+    </section>
+
+    <p class="footer-note">&copy; 2026 Hidden Objects Jordan Memories. All rights reserved.</p>
+  </main>
+
+</body>
+</html>
